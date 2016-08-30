@@ -24,6 +24,13 @@ ApplicationWindow {
         id: fileManager;
     }
 
+    WorkManager {
+        id: workManager;
+        onWorkMsgChange: {
+            text.text = msg;
+        }
+    }
+
     Column {
         TextField {
             id: text;
@@ -50,6 +57,14 @@ ApplicationWindow {
             text: "文件处理";
             onClicked: {
                 fileManager.fileHandler();
+            }
+        }
+
+        Button {
+            id: btnWork;
+            text: "开始工作";
+            onClicked: {
+                workManager.startWork();
             }
         }
     }

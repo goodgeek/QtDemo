@@ -16,4 +16,5 @@ void FileManager::fileHandler()
     for (auto file : files) {
         qDebug() << file << endl;
     }
+    QFileInfo fileInfo;
 }

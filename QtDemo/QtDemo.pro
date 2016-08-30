@@ -7,7 +7,10 @@ CONFIG += c++11
 SOURCES += main.cpp \
     inifilemanager.cpp \
     sqlitehelper.cpp \
-    filemanager.cpp
+    filemanager.cpp \
+    threadmanager.cpp \
+    workmanager.cpp \
+    tcpserver.cpp
 
 RESOURCES += qml.qrc
 
@@ -20,4 +23,7 @@ include(deployment.pri)
 HEADERS += \
     inifilemanager.h \
     sqlitehelper.h \
-    filemanager.h
+    filemanager.h \
+    threadmanager.h \
+    workmanager.h \
+    tcpserver.h

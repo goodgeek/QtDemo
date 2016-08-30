@@ -1,0 +1,15 @@
+INPUT(
+./release\main.o
+./release\inifilemanager.o
+./release\sqlitehelper.o
+./release\filemanager.o
+./release\threadmanager.o
+./release\workmanager.o
+./release\tcpserver.o
+./release\qrc_qml.o
+./release\moc_inifilemanager.o
+./release\moc_sqlitehelper.o
+./release\moc_filemanager.o
+./release\moc_workmanager.o
+./release\moc_tcpserver.o
+);
