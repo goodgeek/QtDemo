@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
+import QtMultimedia 5.6
 import zhou.app 1.0
 
 ApplicationWindow {
@@ -34,6 +35,7 @@ ApplicationWindow {
     Column {
         TextField {
             id: text;
+            width: 400;
         }
 
         Button {
@@ -68,6 +70,4 @@ ApplicationWindow {
             }
         }
     }
-
-
 }

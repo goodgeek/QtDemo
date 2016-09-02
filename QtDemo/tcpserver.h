@@ -4,18 +4,20 @@
 #include <QObject>
 #include <QTcpServer>
 
-class TcpServer : public QObject
+class TcpServer : public QTcpServer
 {
     Q_OBJECT
 public:
     TcpServer();
     ~TcpServer();
+    void startServer();
+    void stopServer();
 private:
-    QTcpServer *mTcpServer = nullptr;
 signals:
-    void netRecvMsg(QString msg);
+    void netMsgChanged(QString msg);
 public slots:
-    void netNewConnection();
+protected:
+    virtual void incomingConnection(qintptr socketDescriptor) override;
 };
 
 #endif // TCPSERVER_H

@@ -6,10 +6,16 @@ INPUT(
 ./release\threadmanager.o
 ./release\workmanager.o
 ./release\tcpserver.o
+./release\tcphandlerthread.o
+./release\xmlhandler.o
+./release\jsonhandler.o
 ./release\qrc_qml.o
 ./release\moc_inifilemanager.o
 ./release\moc_sqlitehelper.o
 ./release\moc_filemanager.o
 ./release\moc_workmanager.o
 ./release\moc_tcpserver.o
+./release\moc_tcphandlerthread.o
+./release\moc_xmlhandler.o
+./release\moc_jsonhandler.o
 );

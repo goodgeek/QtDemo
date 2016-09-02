@@ -10,7 +10,10 @@ SOURCES += main.cpp \
     filemanager.cpp \
     threadmanager.cpp \
     workmanager.cpp \
-    tcpserver.cpp
+    tcpserver.cpp \
+    tcphandlerthread.cpp \
+    xmlhandler.cpp \
+    jsonhandler.cpp
 
 RESOURCES += qml.qrc
 
@@ -26,4 +29,7 @@ HEADERS += \
     filemanager.h \
     threadmanager.h \
     workmanager.h \
-    tcpserver.h
+    tcpserver.h \
+    tcphandlerthread.h \
+    xmlhandler.h \
+    jsonhandler.h

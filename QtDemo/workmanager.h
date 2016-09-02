@@ -16,6 +16,7 @@ public:
 signals:
     void workMsgChange(QString msg);
 public slots:
+    void imWrok(QString msg);
 private:
     std::shared_ptr<TcpServer> mTcpServer = nullptr;
 };

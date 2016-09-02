@@ -49,12 +49,18 @@ SOURCES       = ..\QtDemo\main.cpp \
 		..\QtDemo\filemanager.cpp \
 		..\QtDemo\threadmanager.cpp \
 		..\QtDemo\workmanager.cpp \
-		..\QtDemo\tcpserver.cpp debug\qrc_qml.cpp \
+		..\QtDemo\tcpserver.cpp \
+		..\QtDemo\tcphandlerthread.cpp \
+		..\QtDemo\xmlhandler.cpp \
+		..\QtDemo\jsonhandler.cpp debug\qrc_qml.cpp \
 		debug\moc_inifilemanager.cpp \
 		debug\moc_sqlitehelper.cpp \
 		debug\moc_filemanager.cpp \
 		debug\moc_workmanager.cpp \
-		debug\moc_tcpserver.cpp
+		debug\moc_tcpserver.cpp \
+		debug\moc_tcphandlerthread.cpp \
+		debug\moc_xmlhandler.cpp \
+		debug\moc_jsonhandler.cpp
 OBJECTS       = debug/main.o \
 		debug/inifilemanager.o \
 		debug/sqlitehelper.o \
@@ -62,25 +68,37 @@ OBJECTS       = debug/main.o \
 		debug/threadmanager.o \
 		debug/workmanager.o \
 		debug/tcpserver.o \
+		debug/tcphandlerthread.o \
+		debug/xmlhandler.o \
+		debug/jsonhandler.o \
 		debug/qrc_qml.o \
 		debug/moc_inifilemanager.o \
 		debug/moc_sqlitehelper.o \
 		debug/moc_filemanager.o \
 		debug/moc_workmanager.o \
-		debug/moc_tcpserver.o
+		debug/moc_tcpserver.o \
+		debug/moc_tcphandlerthread.o \
+		debug/moc_xmlhandler.o \
+		debug/moc_jsonhandler.o
 
 DIST          =  ..\QtDemo\inifilemanager.h \
 		..\QtDemo\sqlitehelper.h \
 		..\QtDemo\filemanager.h \
 		..\QtDemo\threadmanager.h \
 		..\QtDemo\workmanager.h \
-		..\QtDemo\tcpserver.h ..\QtDemo\main.cpp \
+		..\QtDemo\tcpserver.h \
+		..\QtDemo\tcphandlerthread.h \
+		..\QtDemo\xmlhandler.h \
+		..\QtDemo\jsonhandler.h ..\QtDemo\main.cpp \
 		..\QtDemo\inifilemanager.cpp \
 		..\QtDemo\sqlitehelper.cpp \
 		..\QtDemo\filemanager.cpp \
 		..\QtDemo\threadmanager.cpp \
 		..\QtDemo\workmanager.cpp \
-		..\QtDemo\tcpserver.cpp
+		..\QtDemo\tcpserver.cpp \
+		..\QtDemo\tcphandlerthread.cpp \
+		..\QtDemo\xmlhandler.cpp \
+		..\QtDemo\jsonhandler.cpp
 QMAKE_TARGET  = QtDemo
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = QtDemo.exe
@@ -103,7 +121,7 @@ dist:
 	$(ZIP) QtDemo.zip $(SOURCES) $(DIST) ..\QtDemo\QtDemo.pro ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\spec_pre.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\qdevice.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\device_config.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\common\angle.conf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\qconfig.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_charts.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\qt_functions.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\qt_config.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\win32\qt_config.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\default_pre.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\win32\default_pre.prf ..\QtDemo\deployment.pri ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\resolve_config.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\default_post.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\build_pass.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\qml_debug.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\win32\rtti.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\precompile_header.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\warn_on.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\qt.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\resources.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\moc.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\win32\opengl.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\uic.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\file_copies.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\win32\windows.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\testcase_targets.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\exceptions.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\yacc.prf ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\mkspecs\features\lex.prf ..\QtDemo\QtDemo.pro ..\QtDemo\qml.qrc ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\qtmaind.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Quickd.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Widgetsd.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Guid.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Qmld.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Networkd.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Sqld.prl ..\..\..\..\software\Qt5.7.0\5.7\mingw53_32\lib\Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\inifilemanager.o debug\sqlitehelper.o debug\filemanager.o debug\threadmanager.o debug\workmanager.o debug\tcpserver.o debug\qrc_qml.o debug\moc_inifilemanager.o debug\moc_sqlitehelper.o debug\moc_filemanager.o debug\moc_workmanager.o debug\moc_tcpserver.o
+	-$(DEL_FILE) debug\main.o debug\inifilemanager.o debug\sqlitehelper.o debug\filemanager.o debug\threadmanager.o debug\workmanager.o debug\tcpserver.o debug\tcphandlerthread.o debug\xmlhandler.o debug\jsonhandler.o debug\qrc_qml.o debug\moc_inifilemanager.o debug\moc_sqlitehelper.o debug\moc_filemanager.o debug\moc_workmanager.o debug\moc_tcpserver.o debug\moc_tcphandlerthread.o debug\moc_xmlhandler.o debug\moc_jsonhandler.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -128,9 +146,9 @@ debug/qrc_qml.cpp: ../QtDemo/qml.qrc \
 		../QtDemo/main.qml
 	D:\software\Qt5.7.0\5.7\mingw53_32\bin\rcc.exe -name qml ..\QtDemo\qml.qrc -o debug\qrc_qml.cpp
 
-compiler_moc_header_make_all: debug/moc_inifilemanager.cpp debug/moc_sqlitehelper.cpp debug/moc_filemanager.cpp debug/moc_workmanager.cpp debug/moc_tcpserver.cpp
+compiler_moc_header_make_all: debug/moc_inifilemanager.cpp debug/moc_sqlitehelper.cpp debug/moc_filemanager.cpp debug/moc_workmanager.cpp debug/moc_tcpserver.cpp debug/moc_tcphandlerthread.cpp debug/moc_xmlhandler.cpp debug/moc_jsonhandler.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_inifilemanager.cpp debug\moc_sqlitehelper.cpp debug\moc_filemanager.cpp debug\moc_workmanager.cpp debug\moc_tcpserver.cpp
+	-$(DEL_FILE) debug\moc_inifilemanager.cpp debug\moc_sqlitehelper.cpp debug\moc_filemanager.cpp debug\moc_workmanager.cpp debug\moc_tcpserver.cpp debug\moc_tcphandlerthread.cpp debug\moc_xmlhandler.cpp debug\moc_jsonhandler.cpp
 debug/moc_inifilemanager.cpp: ../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
@@ -427,6 +445,181 @@ debug/moc_tcpserver.cpp: ../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtC
 		../QtDemo/tcpserver.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/bin/moc.exe
 	D:\software\Qt5.7.0\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/software/Qt5.7.0/5.7/mingw53_32/mkspecs/win32-g++ -ID:/MyProjects/Qt/QtDemo/QtDemo -ID:/software/Qt5.7.0/5.7/mingw53_32/include -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQuick -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtWidgets -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtGui -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtANGLE -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQml -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtSql -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtCore -I. -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\QtDemo\tcpserver.h -o debug\moc_tcpserver.cpp
+
+debug/moc_tcphandlerthread.cpp: ../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QThread \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qthread.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/QTcpSocket \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qabstractsocket.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qdebug.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhash.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlocale.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvariant.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvector.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpoint.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qset.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		../QtDemo/tcphandlerthread.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/bin/moc.exe
+	D:\software\Qt5.7.0\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/software/Qt5.7.0/5.7/mingw53_32/mkspecs/win32-g++ -ID:/MyProjects/Qt/QtDemo/QtDemo -ID:/software/Qt5.7.0/5.7/mingw53_32/include -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQuick -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtWidgets -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtGui -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtANGLE -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQml -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtSql -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtCore -I. -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\QtDemo\tcphandlerthread.h -o debug\moc_tcphandlerthread.cpp
+
+debug/moc_xmlhandler.cpp: ../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../QtDemo/xmlhandler.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/bin/moc.exe
+	D:\software\Qt5.7.0\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/software/Qt5.7.0/5.7/mingw53_32/mkspecs/win32-g++ -ID:/MyProjects/Qt/QtDemo/QtDemo -ID:/software/Qt5.7.0/5.7/mingw53_32/include -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQuick -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtWidgets -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtGui -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtANGLE -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQml -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtSql -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtCore -I. -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\QtDemo\xmlhandler.h -o debug\moc_xmlhandler.cpp
+
+debug/moc_jsonhandler.cpp: ../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../QtDemo/jsonhandler.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/bin/moc.exe
+	D:\software\Qt5.7.0\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/software/Qt5.7.0/5.7/mingw53_32/mkspecs/win32-g++ -ID:/MyProjects/Qt/QtDemo/QtDemo -ID:/software/Qt5.7.0/5.7/mingw53_32/include -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQuick -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtWidgets -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtGui -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtANGLE -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtQml -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtSql -ID:/software/Qt5.7.0/5.7/mingw53_32/include/QtCore -I. -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/software/Qt5.7.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/software/Qt5.7.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\QtDemo\jsonhandler.h -o debug\moc_jsonhandler.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -925,7 +1118,13 @@ debug/workmanager.o: ../QtDemo/workmanager.cpp ../QtDemo/workmanager.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qhostaddress.h \
 		../QtDemo/threadmanager.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QThread \
-		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qthread.h
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qthread.h \
+		../QtDemo/xmlhandler.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QUuid \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/quuid.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QCryptographicHash \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcryptographichash.h \
+		../QtDemo/jsonhandler.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\workmanager.o ..\QtDemo\workmanager.cpp
 
 debug/tcpserver.o: ../QtDemo/tcpserver.cpp ../QtDemo/tcpserver.h \
@@ -999,8 +1198,228 @@ debug/tcpserver.o: ../QtDemo/tcpserver.cpp ../QtDemo/tcpserver.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QSettings \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsettings.h \
 		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/QTcpSocket \
-		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		../QtDemo/tcphandlerthread.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QThread \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tcpserver.o ..\QtDemo\tcpserver.cpp
+
+debug/tcphandlerthread.o: ../QtDemo/tcphandlerthread.cpp ../QtDemo/tcphandlerthread.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QThread \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qthread.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/QTcpSocket \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qtcpsocket.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qabstractsocket.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qdebug.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhash.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlocale.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvariant.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvector.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpoint.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qset.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/QHostAddress \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtNetwork/qhostaddress.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tcphandlerthread.o ..\QtDemo\tcphandlerthread.cpp
+
+debug/xmlhandler.o: ../QtDemo/xmlhandler.cpp ../QtDemo/xmlhandler.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QXmlStreamReader \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qxmlstream.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvector.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpoint.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QXmlStreamWriter \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QFile \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfile.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfiledevice.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QDateTime \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qdatetime.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhash.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QDebug \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qdebug.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlocale.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvariant.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qset.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\xmlhandler.o ..\QtDemo\xmlhandler.cpp
+
+debug/jsonhandler.o: ../QtDemo/jsonhandler.cpp ../QtDemo/jsonhandler.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobal.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qconfig.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qisenum.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlogging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qflags.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmutex.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstring.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qchar.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiterator.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpair.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qregexp.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QJsonDocument \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qjsondocument.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qjsonvalue.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QJsonObject \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qjsonobject.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/QDebug \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qdebug.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qhash.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qmap.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qlocale.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvariant.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qvector.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qpoint.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qset.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		../../../../software/Qt5.7.0/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\jsonhandler.o ..\QtDemo\jsonhandler.cpp
 
 debug/qrc_qml.o: debug/qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_qml.o debug\qrc_qml.cpp
@@ -1019,6 +1438,15 @@ debug/moc_workmanager.o: debug/moc_workmanager.cpp
 
 debug/moc_tcpserver.o: debug/moc_tcpserver.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tcpserver.o debug\moc_tcpserver.cpp
+
+debug/moc_tcphandlerthread.o: debug/moc_tcphandlerthread.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tcphandlerthread.o debug\moc_tcphandlerthread.cpp
+
+debug/moc_xmlhandler.o: debug/moc_xmlhandler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_xmlhandler.o debug\moc_xmlhandler.cpp
+
+debug/moc_jsonhandler.o: debug/moc_jsonhandler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_jsonhandler.o debug\moc_jsonhandler.cpp
 
 ####### Install
 

@@ -6,10 +6,16 @@ INPUT(
 ./debug\threadmanager.o
 ./debug\workmanager.o
 ./debug\tcpserver.o
+./debug\tcphandlerthread.o
+./debug\xmlhandler.o
+./debug\jsonhandler.o
 ./debug\qrc_qml.o
 ./debug\moc_inifilemanager.o
 ./debug\moc_sqlitehelper.o
 ./debug\moc_filemanager.o
 ./debug\moc_workmanager.o
 ./debug\moc_tcpserver.o
+./debug\moc_tcphandlerthread.o
+./debug\moc_xmlhandler.o
+./debug\moc_jsonhandler.o
 );
